@@ -78,8 +78,36 @@ function editReminder () {
 
 }
 
+function statusFilter (answer) {
+    const newListReminder = reminder.filter(item => {
+        item.status == answer
+    })
+
+    console.log(newListReminder)
+}
+
+function categoryFilter (answer) {
+    const newListReminder = reminder.filter(item => {
+        item.category == answer
+    })
+}
+
+function toSearch (title) {
+    const newListReminder = reminder.filter(item => {
+        const itemTitle = item.title.toLowerCase()
+        const researchedTitle = title.toLowerCase()
+
+        return itemTitle.includes(researchedTitle)
+    })   
+
+    console.log(newListReminder)
+}
+
 addReminder()
 editReminder()
+categoryFilter("Study")
 removeReminder("Study Javascript")
 completeReminder("Work")
+statusFilter("pending")
 listReminders("")
+toSearch("Work")
